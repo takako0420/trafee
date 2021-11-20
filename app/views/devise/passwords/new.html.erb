@@ -1,5 +1,5 @@
 <div class="container-fluid mw-md">  
-<p class="fs-1 text-center"><%= t('.forgot_your_password') %></p>
+  <p class="fs-1 text-center"><%= t('.forgot_your_password') %></p>
 
   <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
     <%= bootstrap_devise_error_messages! %>

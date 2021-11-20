@@ -1,5 +1,5 @@
 <div class="container-fluid mw-md">
-<p class="fs-1 text-center"><%= t('.resend_unlock_instructions') %></p>
+  <p class="fs-1 text-center"><%= t('.resend_unlock_instructions') %></p>
 
   <%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
     <%= bootstrap_devise_error_messages! %>
