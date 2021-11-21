@@ -1,0 +1,65 @@
+<div class="container mw-md">
+  <p class="fs-1 lh-lg text-center"><%= t('.title', resource: resource_name.to_s.humanize) %></p>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= bootstrap_devise_error_messages! %>
+
+    <div class="row form-group mb-3">
+      <div class="col">
+        <%= f.label :family_name %>
+        <%= f.text_field :family_name, class: 'form-control form-control-lg', placeholder:"例 ） 山田",required: true %>
+      </div>
+      <div class="col">
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name, class: 'form-control form-control-lg', placeholder:"例 ）太郎",required: true %>
+      </div>
+    </div>
+
+    <div class="row form-group mb-3">
+      <div class="col">
+        <%= f.label :family_name_kana %>
+        <%= f.text_field :family_name_kana, class: 'form-control form-control-lg', placeholder:"例 ）ヤマダ",required: true %>
+      </div>
+      <div class="col">
+        <%= f.label :first_name_kana %>
+        <%= f.text_field :first_name_kana, class: 'form-control form-control-lg', placeholder:"例 ）タロウ",required: true %>
+      </div>
+    </div>
+
+    <div class="form-group mb-3">
+      <%= f.label :company %>
+      <%= f.text_field :company, class: 'form-control form-control-lg',placeholder:"例 ） 〇〇株式会社",required: true %>
+    </div>
+
+    <div class="form-group mb-3">
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control form-control-lg',placeholder:"例 ） trafee@com",required: true %>
+    </div>
+
+    <div class="form-group mb-4">
+      <%= f.label :password %>
+      <%= f.password_field :password, autocomplete: 'new-password',class: 'form-control form-control-lg',placeholder:"半角英数字6~30文字",maxlength: '30' %>
+      <small class="form-text text-muted"><%= t('.leave_blank_if_you_don_t_want_to_change_it') %></small>
+    </div>
+
+    <div class="form-group mb-4">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, autocomplete: 'new-password',class: 'form-control form-control-lg',placeholder:"半角英数字6~30文字",maxlength: '30' %>
+    </div>
+
+    <div class="form-group mb-5">
+      <%= f.label :current_password %>
+      <%= f.password_field :current_password, class: 'form-control form-control-lg',placeholder:"半角英数字6~30文字", required: true, minlength: @minimum_password_length, maxlength: '30' %>
+      <small class="form-text text-muted"><%= t('.we_need_your_current_password_to_confirm_your_changes') %></small>
+    </div>
+
+    <div class="form-group mb-3">
+      <div class="d-grid gap-2">
+        <%= f.submit t('.update'), class: 'btn btn-primary btn-lg'  %>
+      </div>
+    </div>
+  <% end %>
+
+  <%= link_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete %><br>
+  <%= link_to t('.back'), :back %>
+</div>
