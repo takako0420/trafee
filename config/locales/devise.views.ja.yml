@@ -2,6 +2,11 @@ ja:
   activerecord:
     attributes:
       user:
+        family_name: 苗字
+        first_name: 名前
+        family_name_kana: 苗字（フリガナ）
+        first_name_kana: 名前（フリガナ）
+        company: 会社名
         confirmation_sent_at: パスワード確認送信時刻
         confirmation_token: パスワード確認用トークン
         confirmed_at: パスワード確認時刻
@@ -9,7 +14,7 @@ ja:
         current_password: 現在のパスワード
         current_sign_in_at: 現在のログイン時刻
         current_sign_in_ip: 現在のログインIPアドレス
-        email: Eメール
+        email: メールアドレス
         encrypted_password: 暗号化パスワード
         failed_attempts: 失敗したログイン試行回数
         last_sign_in_at: 最終ログイン時刻
@@ -22,7 +27,7 @@ ja:
         reset_password_sent_at: パスワードリセット送信時刻
         reset_password_token: パスワードリセット用トークン
         sign_in_count: ログイン回数
-        unconfirmed_email: 未確認Eメール
+        unconfirmed_email: 未確認メールアドレス
         unlock_token: ロック解除用トークン
         updated_at: 更新日
     models:
@@ -95,8 +100,8 @@ ja:
         are_you_sure: 本当によろしいですか？
         cancel_my_account: アカウント削除
         currently_waiting_confirmation_for_email: "%{email} の確認待ち"
-        leave_blank_if_you_don_t_want_to_change_it: 空欄では変更することができません
-        title: "アカウント編集"
+        leave_blank_if_you_don_t_want_to_change_it: パスワードを変更する場合は入力してください
+        title: アカウント編集
         unhappy: アカウントを削除しますか
         update: 更新
         we_need_your_current_password_to_confirm_your_changes: 変更を反映するには現在のパスワードを入力してください
@@ -133,7 +138,7 @@ ja:
       unlocked: アカウントをロック解除しました。
   errors:
     messages:
-      already_confirmed: は既に登録済みです。ログインしてください。
+      already_confirmed: は登録できません。
       confirmation_period_expired: の期限が切れました。%{period} までに確認する必要があります。 新しくリクエストしてください。
       expired: の有効期限が切れました。新しくリクエストしてください。
       not_found: は見つかりませんでした。

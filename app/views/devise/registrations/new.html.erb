@@ -1,32 +1,55 @@
-<div class="container-fluid mw-md">
-  <p class="fs-1 text-center"><%= t('.sign_up') %></p>
+<div class="container mw-md">
+  <p class="fs-1 lh-lg text-center"><%= t('.sign_up') %></p>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= bootstrap_devise_error_messages! %>
 
+    <div class="row form-group mb-3">
+      <div class="col">
+        <%= f.label :family_name %>
+        <%= f.text_field :family_name, class: 'form-control form-control-lg', placeholder:"例 ） 山田",required: true %>
+      </div>
+      <div class="col">
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name, class: 'form-control form-control-lg', placeholder:"例 ）太郎",required: true %>
+      </div>
+    </div>
+
+    <div class="row form-group mb-3">
+      <div class="col">
+        <%= f.label :family_name_kana %>
+        <%= f.text_field :family_name_kana, class: 'form-control form-control-lg', placeholder:"例 ）ヤマダ",required: true %>
+      </div>
+      <div class="col">
+        <%= f.label :first_name_kana %>
+        <%= f.text_field :first_name_kana, class: 'form-control form-control-lg', placeholder:"例 ）タロウ",required: true %>
+      </div>
+    </div>
+
+    <div class="form-group mb-3">
+      <%= f.label :company %>
+      <%= f.text_field :company, class: 'form-control form-control-lg',placeholder:"例 ） 〇〇株式会社",required: true %>
+    </div>
+
     <div class="form-group mb-3">
       <%= f.label :email %>
-      <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control ' %>
+      <%= f.email_field :email, class: 'form-control form-control-lg',placeholder:"例 ） trafee@com",required: true %>
     </div>
 
     <div class="form-group mb-3">
       <%= f.label :password %>
-      <%= f.password_field :password, autocomplete: 'current-password', class: 'form-control ' %>
-
-      <% if @minimum_password_length %>
-        <small class="form-text text-muted"><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></small>
-      <% end %>
+      <%= f.password_field :password, class: 'form-control form-control-lg',placeholder:"半角英数字6~30文字", required: true, minlength: @minimum_password_length, maxlength: '30' %>
     </div>
 
-    <div class="form-group mb-3">
+    <div class="form-group mb-5">
       <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation, autocomplete: 'current-password', class: 'form-control ' %>
+      <%= f.password_field :password_confirmation, class: 'form-control form-control-lg',placeholder:"半角英数字6~30文字", required: true, minlength: @minimum_password_length, maxlength: '30' %>
     </div>
 
     <div class="form-group mb-3">
-    <div class="d-grid gap-2">
-      <%= f.submit t('.sign_up'), class: 'btn btn-primary' %>
-    </div>
+      <div class="d-grid gap-2">
+        <%= f.submit t('.sign_up'), class: 'btn btn-primary btn-lg' %>
+      </div>
     </div>
   <% end %>
 

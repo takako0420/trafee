@@ -12,3 +12,14 @@
   @extend .alert-danger;
 }
 
+.container{
+  padding: 60px 0 50px 0; 
+}
+
+::placeholder {
+  font-size: 0.75em;
+}
+
+label{
+  font-size: large;
+}
