@@ -5,8 +5,8 @@ class SheetItem
 
   with_option presence: true do
     validates :post_id
-    validates :title
-    validates :text
+    validates :title, length: { maximum: 40 }
+    validates :text, length: { maximum: 100 }
   end
 
   def save
