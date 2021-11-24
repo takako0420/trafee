@@ -20,5 +20,5 @@ class User < ApplicationRecord
   VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
   validates :password, format: { with: VALID_PASSWORD_REGEX }, allow_blank: true
 
-  has_many :sheets
+  has_many :sheets, dependent: :destroy 
 end
