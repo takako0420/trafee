@@ -1,20 +1,22 @@
-<div class="container mw-md">
-  <p class="fs-1 lh-lg text-center"><%= t('.forgot_your_password') %></p>
+<div class="card">
+  <div class="card-body">
+    <p class="fs-1 lh-lg text-center"><%= t('.forgot_your_password') %></p>
 
-  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-    <%= bootstrap_devise_error_messages! %>
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <%= bootstrap_devise_error_messages! %>
 
-    <div class="form-group mb-5">
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control form-control-lg',placeholder:"例 ） trafee@com",required: true %>
-    </div>
+      <div class="form-group mb-5">
+        <%= f.label :email %>
+        <%= f.email_field :email, class: 'form-control form-control-lg',placeholder:"例 ） trafee@com",required: true %>
+      </div>
 
-    <div class="form-group mb-3">
-    <div class="d-grid gap-2">
-      <%= f.submit t('.send_me_reset_password_instructions'), class: 'btn btn-primary btn-lg' %>
-    </div>
-    </div>
-  <% end %>
+      <div class="form-group mb-3">
+      <div class="d-grid gap-2">
+        <%= f.submit t('.send_me_reset_password_instructions'), class: 'btn btn-primary btn-lg' %>
+      </div>
+      </div>
+    <% end %>
 
-  <%= render 'devise/shared/links' %>
+    <%= render 'devise/shared/links' %>
+  </div>
 </div>
