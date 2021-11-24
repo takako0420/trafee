@@ -11,12 +11,12 @@ RSpec.describe User, type: :model do
         expect(@user).to be_valid
       end
     end
-    
+
     context '新規登録できないとき' do
       it '苗字が空では登録できない' do
         @user.family_name = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("苗字を入力してください")
+        expect(@user.errors.full_messages).to include('苗字を入力してください')
       end
       it '苗字が全角（漢字・ひらがな・カタカナ）でなければ登録できない' do
         @user.family_name = 'familyname'
@@ -31,7 +31,7 @@ RSpec.describe User, type: :model do
       it '名前が空では登録できない' do
         @user.first_name = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("名前を入力してください")
+        expect(@user.errors.full_messages).to include('名前を入力してください')
       end
       it '名前が全角（漢字・ひらがな・カタカナ）でなければ登録できない' do
         @user.first_name = 'firstname'
@@ -118,7 +118,7 @@ RSpec.describe User, type: :model do
       it 'パスワードが空では登録できない' do
         @user.password = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("パスワードを入力してください")
+        expect(@user.errors.full_messages).to include('パスワードを入力してください')
       end
       it 'パスワードが５文字以下では登録できない' do
         @user.password = '111aa'
@@ -159,7 +159,7 @@ RSpec.describe User, type: :model do
         @user.password = 'aaa000'
         @user.password_confirmation = 'bbb000'
         @user.valid?
-        expect(@user.errors.full_messages).to include("パスワード（確認用）とパスワードの入力が一致しません")
+        expect(@user.errors.full_messages).to include('パスワード（確認用）とパスワードの入力が一致しません')
       end
     end
   end
