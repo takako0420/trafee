@@ -2,7 +2,7 @@
   <div class="card-body">
     <p class="fs-1 lh-lg text-center"><%= t('.resend_unlock_instructions') %></p>
 
-    <%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
+    <%= form_with model: @user, url: unlock_path(resource_name), method: :post, local: true do |f| %>
       <%= bootstrap_devise_error_messages! %>
 
       <div class="form-group mb-5">

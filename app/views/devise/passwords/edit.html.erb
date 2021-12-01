@@ -2,7 +2,7 @@
   <div class="card-body">
     <p class="fs-1 lh-lg text-center"><%= t('.change_your_password') %></p>
 
-    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+    <%= form_with model: @user, url: password_path(resource_name), method: :put, local: true do |f| %>
       <%= bootstrap_devise_error_messages! %>
       <%= f.hidden_field :reset_password_token %>
 
