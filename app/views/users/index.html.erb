@@ -1,0 +1,129 @@
+<div class="container">
+  <%= render 'layouts/flash_messages' %>
+</div>
+
+<div class="row">
+
+  <div class="col-md-3 col-sm-6">
+    <div class="shadow p-3 mb-5 bg-white">
+      <div class="card-body">
+        <div class="icon mb-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#33ccff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+            <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+            <path d="M2 2l7.586 7.586"></path>
+            <circle cx="11" cy="11" r="2"></circle>
+          </svg>
+        </div>
+        <h5 class="card-title text-center text-nowrap bd-highlight">Skill Map</h5>
+
+        <div class="d-grid gap-2">
+          <%=link_to "GO!",sheets_path, class:"btn btn-info"%>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3 col-sm-6">
+    <div class="shadow p-3 mb-5 bg-white">
+      <div class="card-body">
+        <div class="icon mb-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#33ccff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 11 12 14 22 4"></polyline>
+            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+          </svg>
+        </div>
+        <h5 class="card-title text-center">Try !</h5>
+        <div class="d-grid gap-2">
+          <%=link_to "GO!","#", class:"btn btn-info"%>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3 col-sm-6">
+    <div class="shadow p-3 mb-5 bg-white">
+      <div class="card-body">
+        <div class="icon mb-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#33ccff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="20" x2="12" y2="10"></line>
+            <line x1="18" y1="20" x2="18" y2="4"></line>
+            <line x1="6" y1="20" x2="6" y2="16"></line>
+          </svg>
+        </div>
+        <h5 class="card-title text-center text-nowrap bd-highlight">Feed Back</h5>
+        <div class="d-grid gap-2">
+          <%=link_to "GO!","#", class:"btn btn-info"%>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3 col-sm-6">
+    <div class="shadow p-3 mb-5 bg-white">
+      <div class="card-body">
+        <div class="icon mb-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#33ccff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+          </svg>
+        </div>
+        <h5 class="card-title text-center">Groups</h5>
+        <div class="d-grid gap-2">
+          <%=link_to "GO!","#", class:"btn btn-info"%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<div class="row-mw">
+
+  <div class="row">
+    <div class="col-md-5 col-sm-12">
+      <canvas id="chart_01"></canvas>
+      <script>
+      var ctx = document.getElementById('chart_01');
+      var myChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: ['1:出来ない','2:立会いのもと対応出来る','3:指示のもと対応できる','4:手順書を見ながら対応できる','5:対応できる'],
+          datasets: [{
+            data: [4,6,10,20,60],
+            backgroundColor: ['#993366','#ec64cf','#c5e21f','#4ae674','#33ccff'],
+            weight: 100,
+          }],
+        },
+      });
+      </script>
+    </div>
+
+    <div class="col-md-7 col-sm-12">
+      <canvas id="chart_02"></canvas>
+        <script>
+          var ctx = document.getElementById('chart_02');
+          var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+              labels: ['１月', '３月', '５月', '７月', '９月', '11月'],
+              datasets: [{
+                label: '得点',
+                data: [30, 35, 40, 60, 75, 78],
+                backgroundColor: '#ff9933',
+                stack: 'stack-1',
+              }],
+            },
+          });
+        </script>
+      </div>
+    </div>
+  </div>
+
+</div>
