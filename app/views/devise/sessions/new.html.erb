@@ -1,8 +1,6 @@
-
 <div class="card">
   <div class="card-body">
     <p class="fs-1 lh-lg text-center"><%= t('.sign_in') %></p>
-    <%= render 'layouts/flash_messages' %>
 
     <%= form_with model: @user, url: session_path(resource_name), local:true do |f| %>
       <%= bootstrap_devise_error_messages! %>
