@@ -65,5 +65,3 @@ gem 'bootstrap', '~> 5.1.3'
 gem 'jquery-rails'
 
 gem 'pry-rails'
-
-gem 'cocoon'
