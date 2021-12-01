@@ -1,5 +1,4 @@
 class Sheet < ApplicationRecord
-
   with_options presence: true do
     validates :user_id
     validates :title, length: { maximum: 40 }
