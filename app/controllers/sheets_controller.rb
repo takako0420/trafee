@@ -1,7 +1,7 @@
 class SheetsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_item, only:[:edit, :update, :show, :destroy]
-  before_action :move_to_index, only:[:edit, :show, :destroy ]
+  before_action :set_item, only: [:edit, :update, :show, :destroy]
+  before_action :move_to_index, only: [:edit, :show, :destroy]
 
   def index
     @sheets = current_user.sheets.order(created_at: :desc)
@@ -15,7 +15,7 @@ class SheetsController < ApplicationController
   def create
     if Sheet.create(sheet_params)
       redirect_to action: :index
-      flash[:info] = "スキルマップを登録しました。"
+      flash[:info] = 'スキルマップを登録しました。'
     else
       render :new
     end
@@ -27,7 +27,7 @@ class SheetsController < ApplicationController
   def update
     if @sheet.update(update_sheet_params)
       redirect_to action: :index
-      flash[:info] = "スキルマップを更新しました。"
+      flash[:info] = 'スキルマップを更新しました。'
     else
       render :edit
     end
@@ -36,7 +36,7 @@ class SheetsController < ApplicationController
   def destroy
     if @sheet.destroy
       redirect_to sheets_path(current_user.id)
-      flash[:info] = "スキルマップを削除しました。"
+      flash[:info] = 'スキルマップを削除しました。'
     else
       render :index
     end
@@ -57,19 +57,19 @@ class SheetsController < ApplicationController
 
   def sheet_params
     params.require(:sheet).permit(:title,
-      items_attributes:[
-        :sheet_id,
-        :text,
-        ]).merge(user_id: current_user.id)
+                                  items_attributes: [
+                                    :sheet_id,
+                                    :text
+                                  ]).merge(user_id: current_user.id)
   end
 
   def update_sheet_params
     params.require(:sheet).permit(:title,
-      items_attributes:[
-        :id,
-        :sheet_id,
-        :text,
-        :_destroy
-        ]).merge(user_id: current_user.id)
+                                  items_attributes: [
+                                    :id,
+                                    :sheet_id,
+                                    :text,
+                                    :_destroy
+                                  ]).merge(user_id: current_user.id)
   end
 end
