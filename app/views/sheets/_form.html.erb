@@ -1,0 +1,25 @@
+<div class="row">
+  <%= form_with model: sheet, locale: true do |sheet| %>
+    <%= render 'shared/error_messages', model: sheet.object %>
+    <div class="col-6">
+      <div class="field">
+        <h5>タイトル</h5>
+        <%= sheet.text_field :title, class:'form-control', placeholder:'40文字以内', maxlength:'40', required: true %>
+      </div>
+    </div>
+    <h5 class="mt-3">テキスト</h5>
+    <div id="items">
+      <%= sheet.fields_for :items do |item| %>
+        <%= render "sheets/item_fields", f: item %>
+      <% end %>
+      <div class="col-12">
+        <div class="links mt-3">
+          <%= link_to_add_association '＋ テキストを追加', sheet, :items, class:"btn btn-outline-light border-2 col-12", role:"form-add-button"%>
+        </div>
+      </div>
+    </div>
+    <div class="col-12">
+      <%= sheet.submit'登録する',class:'btn btn-light' %>
+    </div>
+  <% end %>
+</div>

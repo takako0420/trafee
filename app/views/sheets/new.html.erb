@@ -1,2 +1,10 @@
-<h1>Sheets#new</h1>
-<p>Find me in app/views/sheets/new.html.erb</p>
+<div class="row">
+  <div class="col-12">
+    <h1 class="fw-bold">スキルマップ新規作成</h1>
+  </div>
+  <div class="col-12 my-2">
+    <%= link_to "一覧へ戻る", sheets_path, class:"btn btn btn-light border-2" %>
+  </div>
+</div>
+
+<%= render "sheets/form", sheet: @sheet %>
