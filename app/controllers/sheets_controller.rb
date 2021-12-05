@@ -1,7 +1,7 @@
 class SheetsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_item, only: [:edit, :update, :show, :destroy]
-  before_action :move_to_index, only: [:edit, :show, :destroy]
+  before_action :move_to_index, only: [:edit, :update, :show, :destroy]
 
   def index
     @sheets = current_user.sheets.order(created_at: :desc)
@@ -48,7 +48,7 @@ class SheetsController < ApplicationController
   private
 
   def set_item
-    @sheet = current_user.sheets.find(params[:id])
+    @sheet = Sheet.find(params[:id])
   end
 
   def move_to_index
