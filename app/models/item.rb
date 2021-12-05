@@ -1,8 +1,5 @@
 class Item < ApplicationRecord
-  with_options presence: true do
-    # validates :sheet_id
-    validates :text, length: { maximum: 100 }
-  end
+  validates :text, presence: true, length: { maximum: 100 }
 
   belongs_to :sheet
 end
