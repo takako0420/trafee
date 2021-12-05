@@ -13,7 +13,8 @@ class SheetsController < ApplicationController
   end
 
   def create
-    if Sheet.create(sheet_params)
+    @sheet = Sheet.new(sheet_params)
+    if @sheet.save
       redirect_to action: :index
       flash[:info] = 'スキルマップを登録しました。'
     else
