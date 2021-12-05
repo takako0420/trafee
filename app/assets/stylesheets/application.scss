@@ -1,7 +1,24 @@
 @import "bootstrap";
 
- .mw-md {
-  max-width: 576px;
+.fixed-background {
+  min-height: 100vh;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+ 
+.background {
+  background-image: linear-gradient(to top, #869cda 0%, #a9e9f0 100%);
+}
+
+全体ホバーなし
+*:focus {
+  box-shadow:none !important;
+ }
+
+// navber透明度
+.navbar{
+  opacity:0.95;
 }
 
 .alert-notice {
@@ -12,14 +29,73 @@
   @extend .alert-danger;
 }
 
-.container{
-  padding: 60px 0 50px 0; 
+::placeholder{
+  font-size: 0.8em;
 }
 
-::placeholder {
-  font-size: 0.75em;
+.form-control-lg{
+  font-size:medium;
 }
 
 label{
   font-size: large;
+}
+
+// nabver大きさ対策
+// card角丸
+
+#wrapper {
+  padding: 100px 0 50px 0;
+
+  > .card {
+    max-width: 700px;
+    border: none;
+    margin: auto;
+    padding: 2em;
+  }
+
+  > .row {
+    max-width: 900px;
+    border: none;
+    margin: auto;
+    padding: 1em 0;
+    
+    >.btn{
+      max-width: 100px;
+    }
+  }
+}
+
+.row-mw {
+  max-width: 100%;
+  border: none;
+  padding: 0 2em;
+}
+
+.col-md-7.col-sm-12{
+  background-color: whitesmoke;
+  position: relative;
+  }
+
+.col-md-5.col-sm-12{
+  background-color: whitesmoke;
+  }
+
+#chart_01{
+  position: relative;
+  padding: 30px;
+}
+
+#chart_02{
+  position: relative;
+  padding: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
