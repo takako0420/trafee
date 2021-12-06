@@ -21,7 +21,7 @@
 - スキルマップ採点機能
 - グラフ表示機能
 - コメント機能
-- グループ登録機能		
+- グループ登録機能
 
 # テーブル設計
 
@@ -39,10 +39,10 @@
 
 ### Association
 
-- has_many :records
-- has_many :sheets
 - has_many :groups, through: :user_groups
 - has_many :user_groups
+- has_many :documents
+- has_many :sheets
 
 ## Groups テーブル
 
@@ -52,7 +52,7 @@
 
 ### Association
 
-- has_many :users, through: user_groups
+- has_many :users, through: :user_groups
 - has_many :user_groups
 
 ## User_groups テーブル
@@ -78,7 +78,7 @@
 
 - belongs_to :user
 - has_many :items
-- has_many :records
+- has_many :documents
 
 ## Items テーブル
 
@@ -91,17 +91,31 @@
 
 - belongs_to :sheet
 
-## Records テーブル
+## Documents テーブル
 
-| Column   | Type       | Options                        |
-| -------- | ---------- | ------------------------------ |
-| user     | references | null: false, foreign_key: true |
-| sheet    | references | null: false, foreign_key: true |
-| point    | integer    | null: false                    |
-| feedback | text       | null: false                    |
-| object   | text       | null: false                    |
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| user        | references | null: false, foreign_key: true |
+| sheet       | references | null: false, foreign_key: true |
+| chose_one   | integer    |                                |
+| chose_two   | integer    |                                |
+| chose_three | integer    |                                |
+| chose_four  | integer    |                                |
 
 ### Association
 
 - belongs_to :user
 - belongs_to :sheet
+- has_many :comments
+
+## Comments テーブル
+
+| Column   | Type       | Options                        |
+| -------- | ---------- | ------------------------------ |
+| document | references | null: false, foreign_key: true |
+| feedback | text       |                                |
+| object   | text       |                                |
+
+### Association
+
+- belongs_to :document
