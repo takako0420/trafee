@@ -21,4 +21,5 @@ class User < ApplicationRecord
   validates :password, format: { with: VALID_PASSWORD_REGEX }, allow_blank: true
 
   has_many :sheets, dependent: :destroy
+  has_many :documents, dependent: :destroy
 end
