@@ -4,23 +4,23 @@ const form = document.getElementsByClassName('chose');
 
 //ボタンの順番を取得
 for (let i = btn.length - 1 ; i >= 0 ; i--){
+  let btnNum = (i + 4) % 4;
   btn[i].addEventListener("click", function(){
   //アクティブ判定
   if(btn[i].classList.contains('active') === true){ 
-    changeActive(i);
+    changeActive(i,btnNum);
   }else{
-    let num = (i + 4) % 4;
-    score(0,num);
-    divideCount(0,num);
+    score(0,btnNum);
+    divideCount(0,btnNum);
   }
 })};
 
 //グループ内アクティブを非アクティブに切り替え
-function changeActive (i){
+function changeActive (i,btnNum){
   //行番号
   let rowNum = Math.ceil(( i + 5 ) / 4 - 2);
   //クリックしたボタンの順序
-  let btnNum = (i + 4) % 4;
+  
   score(1,btnNum);
   divideCount(1,btnNum);
   //クリックしたボタンは削除対象から除外
@@ -67,28 +67,28 @@ let c_three = 0;
 let c_four = 0;
 
 //フォーム振り分け
-function divideCount(x,num){
-  switch (num){
+function divideCount(x,btnNum){
+  switch (btnNum){
     case 0:
       (x===1)?c_one++:c_one--;
-      minNum(c_one,num);
+      minNum(c_one,btnNum);
       break;
     case 1:
       (x===1)?c_two++:c_two--;
-      minNum(c_two,num);
+      minNum(c_two,btnNum);
       break;
     case 2:
       (x===1)?c_three++:c_three--;
-      minNum(c_three,num);
+      minNum(c_three,btnNum);
       break;
     case 3:
       (x===1)?c_four++:c_four--;
-      minNum(c_four,num);
+      minNum(c_four,btnNum);
       break;
   }
 };
 
 //フォームに出力
-function minNum (sumCount,num){
-  form[num].value = sumCount;
+function minNum (sumCount,btnNum){
+  form[btnNum].value = sumCount;
 };
