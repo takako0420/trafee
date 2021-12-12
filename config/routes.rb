@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   root 'users#index'
   devise_for :users
-  resources :sheets do
-    resources :documents, only: [:new]
-  end
+  resources :sheets
+  resources :documents, only: [:new, :create]
 end
