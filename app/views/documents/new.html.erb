@@ -1,2 +1,89 @@
-<h1>Documents#new</h1>
-<p>Find me in app/views/documents/new.html.erb</p>
+<div class="container">
+  <%= render 'shared/flash_messages' %>
+</div>
+
+<!-- 未設定！！！JSに@sheetsを渡す -->
+<input type="hidden" id="sheets" value="<%= @sheets %>">
+
+<div class="row">
+  <div class="col-12">
+    <h1 class="fw-bold mb-5">スキルマップテスト</h1>
+
+    <% unless @sheets.length > 0 %>
+      <p class="col-12 p-3">
+        スキルマップが登録されていません
+      </p>
+    <% else %>
+      <select id="select-main" class="form-select form-select-lg mb-3">
+        <option value="">スキルマップを選択してください</option>
+        <% @sheets.each do |sheet| %>
+          <option value=<%=sheet.id%>><%= sheet.title %></option>
+        <% end %>
+      </select>
+
+      <p class="lh-1">０：未着手</p>
+      <p class="lh-1">１：立ち会いのもと出来る</p>
+      <p class="lh-1">２：指示のもと出来る</p>
+      <p class="lh-1">３：１人で出来る</p>
+      <p class="lh-1">４：指導することが出来る</p>
+      
+      <!-- テーブル -->
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="col-10 fs-6 text-center"></th>
+            <th class="col-2"></th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <!-- スキルマップ内容 -->
+          <% @sheets[0].items.each do |sheet|%>
+            <tr>
+              <td class="col-10 text-break ps-4", id="input_area">
+                <%= sheet.text %>
+              </td>
+              <td class="col-2">
+                <div id="js-items" class="btn-group align-middle" role="group">
+                    <button type="radio" class="btn btn-outline-light border-2" name="check" data-bs-toggle="button">1</button>
+                    <button type="radio" class="btn btn-outline-light border-2" name="check" data-bs-toggle="button">2</button>
+                    <button type="radio" class="btn btn-outline-light border-2" name="check" data-bs-toggle="button">3</button>
+                    <button type="radio" class="btn btn-outline-light border-2" name="check" data-bs-toggle="button">4</button>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      
+      <!-- 得点 -->
+      <div class="col-12 text-end p-2 fw-bold fs-5">
+        合計：<span id="sum">0</span> / 100 点
+      </div>
+      
+      <!-- フォーム -->
+      <div class="col-12">
+        <%= form_with model:@document, locale: true do |f| %>
+          <%= render "shared/error_messages", model: f.object %>
+          <select name="document[sheet_id]" id="form-select">
+            <option value="">スキルマップを選択してください</option>
+            <% @sheets.each do |s| %>
+              <option value=<%=s.id%>><%= s.title %></option>
+            <% end %>
+          </select>
+          <%= f.hidden_field :chose_one, class:"chose" %>
+          <%= f.hidden_field :chose_two, class:"chose" %>
+          <%= f.hidden_field :chose_three, class:"chose" %>
+          <%= f.hidden_field :chose_four, class:"chose" %>
+          <div class="d-grid gap-2">
+            <%= f.submit "送信する" ,class:"btn btn-primary border-2", id:"submit" %>
+          </div>
+        <% end %>
+      </div>
+
+    <% end %>
+  </div>
+</div>
+
+<%= javascript_pack_tag 'document/application' %>
+
