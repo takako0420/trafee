@@ -5,6 +5,7 @@ const form = document.getElementsByClassName('chose');
 //ボタンの順番を取得
 for (let i = btn.length - 1 ; i >= 0 ; i--){
   let btnNum = (i + 4) % 4;
+  btnSet(btnNum)
   btn[i].addEventListener("click", function(){
   //アクティブ判定
   if(btn[i].classList.contains('active') === true){ 
@@ -15,12 +16,21 @@ for (let i = btn.length - 1 ; i >= 0 ; i--){
   }
 })};
 
+//フォーム初期値０
+function btnSet(btnNum){
+  let n = 0;
+  while (n <= btnNum){
+    form[n].value = 0;
+    n++;
+  }
+};
+
 //グループ内アクティブを非アクティブに切り替え
 function changeActive (i,btnNum){
   //行番号
   let rowNum = Math.ceil(( i + 5 ) / 4 - 2);
   //クリックしたボタンの順序
-  
+
   score(1,btnNum);
   divideCount(1,btnNum);
   //クリックしたボタンは削除対象から除外
