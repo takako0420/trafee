@@ -25,33 +25,7 @@
       <%= render "choice" %>
       
       <!-- テーブル -->
-      <table class="table">
-        <thead>
-          <tr>
-            <th class="col-10 fs-6 text-center"></th>
-            <th class="col-2"></th>
-          </tr>
-        </thead>
-        <tbody>
-          
-          <!-- スキルマップ内容 -->
-          <% @sheets[0].items.each do |sheet|%>
-            <tr>
-              <td class="col-10 text-break ps-4", id="input_area">
-                <%= sheet.text %>
-              </td>
-              <td class="col-2">
-                <div id="js-items" class="btn-group align-middle" role="group">
-                    <button type="radio" class="btn btn-outline-light border-2" name="check" data-bs-toggle="button">1</button>
-                    <button type="radio" class="btn btn-outline-light border-2" name="check" data-bs-toggle="button">2</button>
-                    <button type="radio" class="btn btn-outline-light border-2" name="check" data-bs-toggle="button">3</button>
-                    <button type="radio" class="btn btn-outline-light border-2" name="check" data-bs-toggle="button">4</button>
-                </div>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+      <%= render "table", sheets: @sheets %>
       
       <!-- 得点 -->
       <div class="col-12 text-end p-2 fw-bold fs-5">
