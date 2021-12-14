@@ -67,7 +67,7 @@ function score(x,count){
 
 //合計点出力
 function outPut(numValue){
-  document.getElementById('sum').innerHTML = Math.round(numValue);
+  document.getElementById('sum').textContent = Math.round(numValue);
 };
 
 //フォームのカウント初期値
