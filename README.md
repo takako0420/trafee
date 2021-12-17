@@ -114,7 +114,7 @@
 | -------- | ---------- | ------------------------------ |
 | document | references | null: false, foreign_key: true |
 | feedback | text       | null: false                    |
-| object   | text       | null: false                    |
+| target   | text       | null: false                    |
 
 ### Association
 

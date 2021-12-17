@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2021_12_17_122745) do
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "document_id", null: false
     t.text "feedback", null: false
-    t.text "object", null: false
+    t.text "target", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["document_id"], name: "index_comments_on_document_id"
