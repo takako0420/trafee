@@ -1,0 +1,35 @@
+<%= render "choice" %>
+<table class="table">
+  <thead>
+    <tr>
+      <th class="col-10 fs-6 text-center"></th>
+      <th class="col-2"></th>
+    </tr>
+  </thead>
+  <tbody id="reset">
+    <tr class="input-table">
+      <%= render "table", sheets: sheets %>
+    </tr>
+  </tbody>
+</table>
+<div class="col-12 text-end p-2 fw-bold fs-5">
+  合計 : <span id="sum">0</span> / 100 点
+</div>
+<div class="col-12">
+  <%= form_with model:document, locale: true do |f| %>
+    <%= render "shared/error_messages", model: f.object %>
+    <select name="document[sheet_id]" id="form-select">
+      <option value=""></option>
+      <% sheets.each do |s| %>
+        <option value=<%=s.id%>><%= s.title %></option>
+      <% end %>
+    </select>
+    <%= f.hidden_field :chose_one, class:"chose" %>
+    <%= f.hidden_field :chose_two, class:"chose" %>
+    <%= f.hidden_field :chose_three, class:"chose" %>
+    <%= f.hidden_field :chose_four, class:"chose" %>
+    <div class="d-grid gap-2">
+      <%= f.submit "送信する" ,class:"btn btn-primary border-2", id:"submit" %>
+    </div>
+  <% end %>
+</div>

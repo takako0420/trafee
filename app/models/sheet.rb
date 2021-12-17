@@ -5,6 +5,7 @@ class Sheet < ApplicationRecord
   end
 
   belongs_to :user
+  has_many :documents, dependent: :destroy
   has_many :items, inverse_of: :sheet, dependent: :destroy
   accepts_nested_attributes_for :items, allow_destroy: true
 end

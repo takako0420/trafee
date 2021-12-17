@@ -1,0 +1,16 @@
+ja:
+  activerecord:
+    models:
+      sheet: スキルマップ
+      document: スキルマップの結果
+      item: スキルマップの内容
+    attributes:
+      sheet:
+        title: タイトル
+      item:
+        text: テキスト
+      document:
+        chose_one: ボタン'1'
+        chose_two: ボタン'2'
+        chose_three: ボタン'3'
+        chose_four: ボタン'4'

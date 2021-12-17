@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_22_024509) do
+ActiveRecord::Schema.define(version: 2021_12_06_094720) do
+
+  create_table "documents", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "sheet_id", null: false
+    t.integer "chose_one"
+    t.integer "chose_two"
+    t.integer "chose_three"
+    t.integer "chose_four"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["sheet_id"], name: "index_documents_on_sheet_id"
+    t.index ["user_id"], name: "index_documents_on_user_id"
+  end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "sheet_id", null: false
@@ -45,6 +58,8 @@ ActiveRecord::Schema.define(version: 2021_11_22_024509) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "documents", "sheets"
+  add_foreign_key "documents", "users"
   add_foreign_key "items", "sheets"
   add_foreign_key "sheets", "users"
 end
