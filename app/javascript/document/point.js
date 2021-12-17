@@ -4,12 +4,11 @@ let btn = document.getElementsByName('check');
 const form = document.getElementsByClassName('chose');
 const tableWrap = document.getElementById('reset');
 
-//テーブル監視
 var observer = new MutationObserver(function(){
   formSet();
   outPut(0);
   divideCount(0,'reset');
-  score('reset',0)
+  score('reset',0);
   btnSearch();
 })
 
@@ -17,7 +16,9 @@ const config = {
   childList: true
 };
 
-observer.observe(tableWrap, config);
+if (gon.sheets.length != 0){
+  observer.observe(tableWrap, config);
+}
 
 //クリックイベント
 function btnSearch(){
@@ -52,7 +53,7 @@ function changeActive (i,btnNum){
         divideCount(0,e);
       }
     })
-    c++
+    c++;
   }
 }
 

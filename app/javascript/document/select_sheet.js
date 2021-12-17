@@ -47,5 +47,5 @@ function HTMLRestore() {
   valueChange();
 }
 
-window.addEventListener('load', DefaultSave);
-if(selectInput != null){selectInput.addEventListener('change', HTMLRestore)};
+if(gon.sheets.length != 0){window.addEventListener('load', DefaultSave)}
+if(selectInput != null){selectInput.addEventListener('change', HTMLRestore)}
