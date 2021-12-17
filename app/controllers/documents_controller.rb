@@ -1,9 +1,11 @@
 class DocumentsController < ApplicationController
   before_action :authenticate_user!
-  
+
   def new
     @document = Document.new
-    @sheets = current_user.sheets.all
+    @sheets = current_user_items.sheets
+    gon.sheets = @sheets
+    gon.items = current_user_items.sheets.map{ |sheet| sheet.items }.flatten
   end
 
   def create
@@ -17,7 +19,9 @@ class DocumentsController < ApplicationController
   end
 
   private
-  def select_sheet
+  
+  def current_user_items
+    User.includes(:sheets => :items).find_by_id(current_user.id)
   end
 
   def document_params
