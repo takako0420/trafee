@@ -4,6 +4,7 @@ ja:
       sheet: スキルマップ
       document: スキルマップの結果
       item: スキルマップの内容
+      comment: 目標設定
     attributes:
       sheet:
         title: タイトル
@@ -14,3 +15,6 @@ ja:
         chose_two: ボタン'2'
         chose_three: ボタン'3'
         chose_four: ボタン'4'
+      comment:
+        feedback: 振り返り
+        object: 次回までの目標
