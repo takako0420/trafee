@@ -113,8 +113,8 @@
 | Column   | Type       | Options                        |
 | -------- | ---------- | ------------------------------ |
 | document | references | null: false, foreign_key: true |
-| feedback | text       |                                |
-| object   | text       |                                |
+| feedback | text       | null: false                    |
+| object   | text       | null: false                    |
 
 ### Association
 
