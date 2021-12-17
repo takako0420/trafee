@@ -10,93 +10,92 @@ RSpec.describe User, type: :model do
       it '全ての項目があれば登録できる' do
         expect(@user).to be_valid
       end
+      it '会社名がなくても登録できる' do
+        @user.company=''
+        expect(@user).to be_valid
+      end
     end
 
     context '新規登録できないとき' do
-      it '苗字が空では登録できない' do
+      it '姓が空では登録できない' do
         @user.family_name = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include('苗字を入力してください')
+        expect(@user.errors.full_messages).to include('姓を入力してください')
       end
-      it '苗字が全角（漢字・ひらがな・カタカナ）でなければ登録できない' do
+      it '姓が全角（漢字・ひらがな・カタカナ）でなければ登録できない' do
         @user.family_name = 'familyname'
         @user.valid?
-        expect(@user.errors.full_messages).to include('苗字は不正な値です')
+        expect(@user.errors.full_messages).to include('姓は不正な値です')
       end
-      it '苗字が半角では登録できない' do
+      it '姓が半角では登録できない' do
         @user.family_name = 'ﾐｮｳｼﾞ'
         @user.valid?
-        expect(@user.errors.full_messages).to include('苗字は不正な値です')
+        expect(@user.errors.full_messages).to include('姓は不正な値です')
       end
-      it '名前が空では登録できない' do
+      it '名が空では登録できない' do
         @user.first_name = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include('名前を入力してください')
+        expect(@user.errors.full_messages).to include('名を入力してください')
       end
-      it '名前が全角（漢字・ひらがな・カタカナ）でなければ登録できない' do
+      it '名が全角（漢字・ひらがな・カタカナ）でなければ登録できない' do
         @user.first_name = 'firstname'
         @user.valid?
-        expect(@user.errors.full_messages).to include('名前は不正な値です')
+        expect(@user.errors.full_messages).to include('名は不正な値です')
       end
-      it '名前が半角では登録できない' do
+      it '名が半角では登録できない' do
         @user.first_name = 'ﾅﾏｴ'
         @user.valid?
-        expect(@user.errors.full_messages).to include('名前は不正な値です')
+        expect(@user.errors.full_messages).to include('名は不正な値です')
       end
-      it '苗字（フリガナ）が空では登録できない' do
+      it '姓（フリガナ）が空では登録できない' do
         @user.family_name_kana = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include('苗字（フリガナ）を入力してください')
+        expect(@user.errors.full_messages).to include('姓（フリガナ）を入力してください')
       end
-      it '苗字（フリガナ）がひらがなでは登録できない' do
+      it '姓（フリガナ）がひらがなでは登録できない' do
         @user.family_name_kana = 'みょうじ'
         @user.valid?
-        expect(@user.errors.full_messages).to include('苗字（フリガナ）は不正な値です')
+        expect(@user.errors.full_messages).to include('姓（フリガナ）は不正な値です')
       end
-      it '苗字（フリガナ）が漢字では登録できない' do
-        @user.family_name_kana = '苗字'
+      it '姓（フリガナ）が漢字では登録できない' do
+        @user.family_name_kana = '姓'
         @user.valid?
-        expect(@user.errors.full_messages).to include('苗字（フリガナ）は不正な値です')
+        expect(@user.errors.full_messages).to include('姓（フリガナ）は不正な値です')
       end
-      it '苗字（フリガナ）が英語では登録できない' do
+      it '姓（フリガナ）が英語では登録できない' do
         @user.family_name_kana = 'familyname'
         @user.valid?
-        expect(@user.errors.full_messages).to include('苗字（フリガナ）は不正な値です')
+        expect(@user.errors.full_messages).to include('姓（フリガナ）は不正な値です')
       end
-      it '苗字（フリガナ）が半角では登録できない' do
+      it '姓（フリガナ）が半角では登録できない' do
         @user.family_name_kana = 'ﾐｮｳｼﾞ'
         @user.valid?
-        expect(@user.errors.full_messages).to include('苗字（フリガナ）は不正な値です')
+        expect(@user.errors.full_messages).to include('姓（フリガナ）は不正な値です')
       end
-      it '名前（フリガナ）が空では登録できない' do
+      it '名（フリガナ）が空では登録できない' do
         @user.first_name_kana = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include('名前（フリガナ）を入力してください')
+        expect(@user.errors.full_messages).to include('名（フリガナ）を入力してください')
       end
-      it '名前（フリガナ）がひらがなでは登録できない' do
+      it '名（フリガナ）がひらがなでは登録できない' do
         @user.first_name_kana = 'なまえ'
         @user.valid?
-        expect(@user.errors.full_messages).to include('名前（フリガナ）は不正な値です')
+        expect(@user.errors.full_messages).to include('名（フリガナ）は不正な値です')
       end
-      it '名前（フリガナ）が漢字では登録できない' do
-        @user.first_name_kana = '名前'
+      it '名（フリガナ）が漢字では登録できない' do
+        @user.first_name_kana = '名'
         @user.valid?
-        expect(@user.errors.full_messages).to include('名前（フリガナ）は不正な値です')
+        expect(@user.errors.full_messages).to include('名（フリガナ）は不正な値です')
       end
-      it '名前（フリガナ）が英語では登録できない' do
+      it '名（フリガナ）が英語では登録できない' do
         @user.first_name_kana = 'firstname'
         @user.valid?
-        expect(@user.errors.full_messages).to include('名前（フリガナ）は不正な値です')
+        expect(@user.errors.full_messages).to include('名（フリガナ）は不正な値です')
       end
-      it '名前（フリガナ）が半角では登録できない' do
+      it '名（フリガナ）が半角では登録できない' do
         @user.first_name_kana = 'ﾅﾏｴ'
         @user.valid?
-        expect(@user.errors.full_messages).to include('名前（フリガナ）は不正な値です')
-      end
-      it '会社名が空では登録できない' do
-        @user.company = ''
-        @user.valid?
-        expect(@user.errors.full_messages).to include('会社名を入力してください')
+        expect(@user.errors.full_messages).to include('名（フリガナ）は不正な値です')
       end
       it 'メールアドレスが空では登録できない' do
         @user.email = ''

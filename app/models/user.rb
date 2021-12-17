@@ -4,7 +4,6 @@ class User < ApplicationRecord
     validates :first_name
     validates :family_name_kana
     validates :first_name_kana
-    validates :company
   end
 
   validates :family_name, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/ }, allow_blank: true
