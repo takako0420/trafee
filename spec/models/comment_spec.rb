@@ -39,7 +39,7 @@ RSpec.describe Comment, type: :model do
         another_comment = FactoryBot.build(:comment, document_id: document.id)
         another_comment.document_id = @comment.document_id
         another_comment.valid?
-        expect(another_comment.errors.full_messages).to include("目標の記録は登録済みのため、保存できません")
+        expect(another_comment.errors.full_messages).to include('目標の記録は登録済みのため、保存できません')
       end
     end
   end

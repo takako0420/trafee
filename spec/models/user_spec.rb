@@ -11,7 +11,7 @@ RSpec.describe User, type: :model do
         expect(@user).to be_valid
       end
       it '会社名がなくても登録できる' do
-        @user.company=''
+        @user.company = ''
         expect(@user).to be_valid
       end
     end

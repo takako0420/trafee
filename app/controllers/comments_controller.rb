@@ -21,9 +21,9 @@ class CommentsController < ApplicationController
   private
 
   def set_comment
-    document = User.includes(:documents => :comment).find_by_id(current_user.id)
+    document = User.includes(documents: :comment).find_by_id(current_user.id)
     gon.documents = @documents = document.documents
-    comments = @documents.map{|document|document.comment}.flatten
+    comments = @documents.map { |document| document.comment }.flatten
     gon.comments = comments.compact
   end
 
