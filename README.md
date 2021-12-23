@@ -110,11 +110,11 @@
 
 ## Comments テーブル
 
-| Column   | Type       | Options                        |
-| -------- | ---------- | ------------------------------ |
-| document | references | null: false, foreign_key: true |
-| feedback | text       | null: false                    |
-| target   | text       | null: false                    |
+| Column   | Type       | Options                                      |
+| -------- | ---------- | -------------------------------------------- |
+| document | references | null: false, foreign_key: true, unique: true |
+| feedback | text       | null: false                                  |
+| target   | text       | null: false                                  |
 
 ### Association
 
