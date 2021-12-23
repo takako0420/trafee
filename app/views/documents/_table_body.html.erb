@@ -16,8 +16,8 @@
   合計 : <span id="sum">0</span> / 100 点
 </div>
 <div class="col-12">
-  <%= form_with model:document, locale: true do |f| %>
-    <%= render "shared/error_messages", model: f.object %>
+  <%= form_with model:document, local: true do |f| %>
+    <%= render "layouts/error_messages", model: f.object %>
     <select name="document[sheet_id]" id="form-select">
       <option value=""></option>
       <% sheets.each do |s| %>

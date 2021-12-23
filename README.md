@@ -106,15 +106,15 @@
 
 - belongs_to :user
 - belongs_to :sheet
-- has_many :comments
+- has_one :comment
 
 ## Comments テーブル
 
-| Column   | Type       | Options                        |
-| -------- | ---------- | ------------------------------ |
-| document | references | null: false, foreign_key: true |
-| feedback | text       |                                |
-| object   | text       |                                |
+| Column   | Type       | Options                                      |
+| -------- | ---------- | -------------------------------------------- |
+| document | references | null: false, foreign_key: true, unique: true |
+| feedback | text       | null: false                                  |
+| target   | text       | null: false                                  |
 
 ### Association
 

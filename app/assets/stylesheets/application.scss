@@ -8,21 +8,21 @@
 }
  
 .background {
-  background-image: linear-gradient(to top, #869cda 0%, #a9e9f0 100%);
+  background: -moz-radial-gradient(#f1efec, #ccc0b1); 
+  background: -webkit-radial-gradient(#f1efec, #ccc0b1); 
+  background: radial-gradient(#f1efec, #ccc0b1); 
 }
 
-全体ホバーなし
 *:focus {
   box-shadow:none !important;
  }
 
-// navber透明度
 .navbar{
   opacity:0.95;
 }
 
 .alert-notice {
-  @extend .alert-info;
+  @extend .alert-warning;
 }
 
 .alert-alert {
@@ -40,9 +40,6 @@
 label{
   font-size: large;
 }
-
-// nabver大きさ対策
-// card角丸
 
 #wrapper {
   padding: 100px 0 50px 0;
@@ -72,15 +69,6 @@ label{
   padding: 0 2em;
 }
 
-.col-md-7.col-sm-12{
-  background-color: whitesmoke;
-  position: relative;
-  }
-
-.col-md-5.col-sm-12{
-  background-color: whitesmoke;
-  }
-
 #chart_01{
   position: relative;
   padding: 30px;
@@ -100,7 +88,91 @@ label{
   align-items: center;
 }
 
-//スキルマップ実行時セレクトボックス非表示
 #form-select{
   visibility:hidden;
+}
+
+.comment{
+  background-color: #f1efec;
+  border: none;
+  .form-control{
+    padding: 0.5em;
+    margin-bottom: 1em;
+    height: 6em;
+    border: none;
+  }
+  .last_time{
+    background-color: #e6c898;
+    padding: 1em;
+    margin-bottom: 1em;
+    min-height: 6em;
+    border-radius: 5px;
+  }
+  #title{
+    text-align: center;
+    margin: 20px auto;
+    h3{
+      border-bottom: solid 2px black;
+      padding-bottom: 20px;
+      font-weight: bold;
+    }
+    h5{
+      margin: 20px 20px 5px;
+    }
+  }
+  .info{
+    color: dimgray;
+  }
+}
+
+.box1 {
+  padding: 0.5em 1em;
+  background: #f0f7ff;
+  border: dashed 2px #5b8bd0;/*点線*/
+}
+.box1 p {
+  margin: 0; 
+  padding: 0;
+}
+
+.box2 {
+  position: relative;
+  margin: 1em 0;
+  padding: 0.5em 1em;
+  border: solid 2px #000000;
+  border-radius: 15px;
+  font-size: 15px;
+}
+.box2 .box-title {
+  position: absolute;
+  display: inline-block;
+  top: -13px;
+  left: 10px;
+  padding: 0 9px;
+  line-height: 1;
+  font-size: 19px;
+  background: #FFF;
+  color: #ff8929;
+  font-weight: bold;
+}
+.box2 p {
+  margin: 0; 
+  padding: 0.2em;
+}
+.border2 {
+  border-bottom: dashed 3px #ff8929;
+  padding: 0.5em 0;
+}
+.border2-bottom{
+  padding-top: 0.5em;
+}
+
+.btn-warning {
+  width: 250px;
+  height: 50px;
+  background-color: #ff8929;
+  border: #ff8929;
+  border-radius: 50px;
+  font-size: 18px;
+  margin: 20px auto;
 }

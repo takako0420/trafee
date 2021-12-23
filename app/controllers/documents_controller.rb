@@ -5,23 +5,23 @@ class DocumentsController < ApplicationController
     @document = Document.new
     @sheets = current_user_items.sheets
     gon.sheets = @sheets
-    gon.items = current_user_items.sheets.map{ |sheet| sheet.items }.flatten
+    gon.items = @sheets.map { |sheet| sheet.items }.flatten
   end
 
   def create
     @document = Document.new(document_params)
     if @document.save
       redirect_to root_path
-      flash[:info] = 'スキルマップを登録しました。'
+      flash[:warning] = 'スキルマップを登録しました。'
     else
       render :new
     end
   end
 
   private
-  
+
   def current_user_items
-    User.includes(:sheets => :items).find_by_id(current_user.id)
+    User.includes(sheets: :items).find_by_id(current_user.id)
   end
 
   def document_params

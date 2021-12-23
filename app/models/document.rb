@@ -12,4 +12,5 @@ class Document < ApplicationRecord
 
   belongs_to :user
   belongs_to :sheet
+  has_one :comment, dependent: :destroy
 end

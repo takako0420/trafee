@@ -1,0 +1,92 @@
+<div class="row bg-white shadow-lg p-3 comment">
+
+  <div class="col-md-7 col-sm-12" id="title">
+    <h3>テスト結果</h3>
+  </div>
+
+  <% if @documents.length == 0 %>
+    <div class="col-md-7 col-sm-12" id="title">
+      <p>スキルマップのテスト結果がありません。</p>
+      <P>テスト実行後に、こちらのページで確認することができます。</p>
+    </div>
+  <% else %>
+    
+    <div class="col-md-7 col-sm-12">
+      ここに棒グラフが入る
+    </div>
+
+    <div class="col-md-5 col-sm-12">
+      <div class="box2">
+        <span class="box-title">得点</span>
+        <p class="fs-5 fw-bolder">得点は＃点でした</p>
+        <p>前回 ＃点 → ＃点＃</p>
+        <p>初回 ＃点 → ＃点＃</p>
+      </div>
+    </div>
+
+    <div class="col-md-7 col-sm-12">
+      ここに円グラフが入る
+    </div>
+
+    <div class="col-md-5 col-sm-12">
+      <div class="box2">
+        <span class="box-title">項目別</span>
+        <div class="border2">
+          <p>０ : #</p>
+          <p>１ : #</p>
+          <p>２ : #</p>
+          <p>３ : #</p>
+          <p>４ : #</p>
+        </div>
+        <div class="border2-bottom">
+          <p>項目０ 前回 ＃％ → ＃％＃</p>
+          <p>項目１ 前回 ＃％ → ＃％＃</p>
+          <p>項目２ 前回 ＃％ → ＃％＃</p>
+          <p>項目３ 前回 ＃％ → ＃％＃</p>
+          <p>項目４ 前回 ＃％ → ＃％＃</p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<% if @documents.length != 0 %>
+  <div class="row shadow-lg mt-5 justify-content-center comment">
+
+    <div class="col-md-7 col-sm-12" id="title">
+      <h3>目標を記録する</h3>
+      <h5>次回までに達成したい目標を記録に残しましょう</h5>
+      <p class="info fs-6">※ 次回のテストまでの期間に１度だけ登録できます</P>
+    </div>
+
+    <div class="col-10" id="comment">
+      <div class="last_time">
+        <h6 class="fw-bold">前回の振り返り</h6>
+        <p class="lh-sm mb-4" id="last_feedback"></p>
+        <h6 class="fw-bold">前回の目標</h6>
+        <p class="lh-sm mb-0" id="last_target"></p>
+      </div>
+    </div>
+
+    <%= form_with model:@comment, local: true do |f| %>
+      <%= render "layouts/error_messages", model: f.object %>
+      <div class="row justify-content-center">
+        <div class="col-10">
+          <%= f.label :feedback %>
+          <%= f.text_area :feedback, class:"form-control", required: true %>
+        </div>
+
+        <div class="col-10">
+          <%= f.label :target %>
+          <%= f.text_area :target, class:"form-control", required: true %>
+        </div>
+        
+        <div class="d-grid">
+          <%= f.submit "送信する", class:"btn btn-warning"%>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+<%= javascript_pack_tag 'comment/application' %>

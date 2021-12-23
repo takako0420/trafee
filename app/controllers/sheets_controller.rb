@@ -16,7 +16,7 @@ class SheetsController < ApplicationController
     @sheet = Sheet.new(sheet_params)
     if @sheet.save
       redirect_to action: :index
-      flash[:info] = 'スキルマップを登録しました。'
+      flash[:warning] = 'スキルマップを登録しました。'
     else
       render :new
     end
@@ -28,7 +28,7 @@ class SheetsController < ApplicationController
   def update
     if @sheet.update(update_sheet_params)
       redirect_to action: :index
-      flash[:info] = 'スキルマップを更新しました。'
+      flash[:warning] = 'スキルマップを更新しました。'
     else
       render :edit
     end
@@ -37,7 +37,7 @@ class SheetsController < ApplicationController
   def destroy
     if @sheet.destroy
       redirect_to sheets_path(current_user.id)
-      flash[:info] = 'スキルマップを削除しました。'
+      flash[:warning] = 'スキルマップを削除しました。'
     else
       render :index
     end
