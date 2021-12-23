@@ -4,6 +4,6 @@ FactoryBot.define do
     chose_two   {rand(10)}
     chose_three {rand(10)}
     chose_four  {rand(10)}
-    association :user, :sheet
+    association :user
   end
 end
