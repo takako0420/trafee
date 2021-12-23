@@ -2,19 +2,20 @@ ja:
   activerecord:
     models:
       sheet: スキルマップ
-      document: スキルマップの結果
       item: スキルマップの内容
-      comment: 目標設定
+      document: スキルマップの結果
+      comment: 目標の記録
     attributes:
       sheet:
         title: タイトル
       item:
         text: テキスト
-      document:
+      document: 
         chose_one: ボタン'1'
         chose_two: ボタン'2'
         chose_three: ボタン'3'
         chose_four: ボタン'4'
       comment:
+        document_id: 目標の記録
         feedback: 振り返り
         target: 次回までの目標
