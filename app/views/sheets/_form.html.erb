@@ -1,6 +1,6 @@
 <div class="row">
-  <%= form_with model: sheet, locale: true do |sheet| %>
-    <%= render 'shared/error_messages', model: sheet.object %>
+  <%= form_with model: sheet, local: true do |sheet| %>
+    <%= render "layouts/error_messages", model: sheet.object %>
     <div class="col-6">
       <div class="field">
         <h5>タイトル</h5>

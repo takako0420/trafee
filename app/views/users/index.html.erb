@@ -1,5 +1,5 @@
 <div class="container">
-  <%= render 'shared/flash_messages' %>
+  <%= render 'layouts/flash_messages' %>
 </div>
 
 <div class="row">
@@ -53,7 +53,7 @@
         </div>
         <h5 class="card-title text-center text-nowrap bd-highlight">Feed Back</h5>
         <div class="d-grid gap-2">
-          <%=link_to "GO!",new_comment_path, class:"btn btn-info"%>
+          <%=link_to "GO!",new_comment_path, class:"btn btn-info", data: {"turbolinks"=>false}%>
         </div>
       </div>
     </div>
@@ -87,7 +87,7 @@
 <div class="row-mw">
 
   <div class="row">
-    <div class="col-md-5 col-sm-12">
+    <div class="col-md-5 col-sm-12 bg-light">
       <canvas id="chart_01"></canvas>
       <script>
       var ctx = document.getElementById('chart_01');
@@ -105,7 +105,7 @@
       </script>
     </div>
 
-    <div class="col-md-7 col-sm-12">
+    <div class="col-md-7 col-sm-12 bg-light">
       <canvas id="chart_02"></canvas>
         <script>
           var ctx = document.getElementById('chart_02');
